@@ -2,9 +2,9 @@
 \usepackage{circuitikz}
 \begin{document}
 \begin{circuitikz}
-    \draw (0,0) to[battery,v=9V] (0,2) 
-          to[resistor, l=1kΩ] (2,2) 
-          to[led] (2,0) 
-          -- (0,0);
+    \draw (0,0) node[esp32pin] (relay) {GPIO23}
+        -- (2,0) node[relay] (relay) {COM}
+        (relay.NO) -- (4,0) node[battery] {12V+}
+        (relay.GND) -- (4,-2) node[ground] {};
 \end{circuitikz}
 \end{document}
